@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'authors_api.wsgi.application'
 
 
 DATABASES = {"default": env.db("DATABASE_URL")}
-DATABASES['default']['ATOMIC_REQUESTS'] = True
+DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.Argon2PasswordHasher",
