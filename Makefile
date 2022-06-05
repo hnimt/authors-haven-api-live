@@ -17,7 +17,7 @@ makemigrations:
 	docker compose -f local.yml run --rm api python3 manage.py makemigrations
 
 collectstatic:
-	docker compose -f local.yml run --rm api python3 manage.py collectstatic --no-input --create
+	docker compose -f local.yml run --rm api python3 manage.py collectstatic --no-input --clear
 
 superuser:
 	docker compose -f local.yml run --rm api python3 manage.py createsuperuser
@@ -29,7 +29,7 @@ volume:
 	docker volume inspect authors-src_local_postgres_data
 
 authors-db:
-	docker compose -f local.yml exec postgres psql --username=user --dbname=authors-live
+	docker compose -f local.yml exec postgres psql --username=alphaogilo --dbname=authors-live
 
 flake8:
 	docker compose -f local.yml exec api flake8 .
@@ -51,4 +51,3 @@ isort-diff:
 
 isort:
 	docker compose -f local.yml exec api isort . --skip env --skip migrations
-
